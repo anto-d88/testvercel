@@ -6,7 +6,7 @@ const port = 3000;
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', 'views');
 // Route de base
 const accueilRoutes = require('./routes/test');
 
