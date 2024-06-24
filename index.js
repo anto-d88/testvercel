@@ -5,8 +5,8 @@ const port = 3000;
 // Middleware pour servir des fichiers statiques
 app.use(express.static('public'));
 
-app.set('view engine', 'ejs');
-app.set('views', './views');
+//app.set('view engine', 'ejs');
+//app.set('views', './views');
 // Route de base
 const accueilRoutes = require('./routes/test');
 
