@@ -2,7 +2,7 @@ const express = require('express');
 //const ejs = require('ejs');
 const router = express.Router();
 
-
+const test = 10;
 //router.use(express.static('../views/index.ejs'));
 
 router.get('/', (req, res) => {
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
             <li><a href="/history">L'histoire de la spiruline</a></li>
             <li><a href="/produis">Nos produits</a></li>
             <li><a href="#">Témoignages</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact ${test}</a></li>
         
             <li><a href="/register">Nous rejoindre</a></li>
             <li><a href="/login">Connection</a> </li>
