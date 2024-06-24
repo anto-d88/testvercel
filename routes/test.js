@@ -7,8 +7,8 @@ router.get('/', (req, res) => {
         if (err) {
           return res.status(500).send('Erreur de requête SQL');
         }*/
-        res.send('Hello!');
-       // res.render('../accueil.html');
+       // res.send('Hello!');
+        res.render('accueil');
        // res.render('accueil', { products: results, user: req.session.user });
       });
   //});
