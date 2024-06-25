@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.ejs'));
     });
     
-//    app.use(accueilRoutes);
     app.get('/img/imgmaquette01.jpg', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'img', 'imgmaquette01.jpg'));
     });
@@ -26,6 +25,7 @@ app.get('/', (req, res) => {
     app.get('', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'main.js'));
     });
+    //   app.use(accueilRoutes);
 // Route About
 /*app.get('/about', (req, res) => {
     res.send('About Page');
