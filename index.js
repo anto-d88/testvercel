@@ -17,12 +17,12 @@ app.get('/', (req, res) => {
     app.get('/img/imgmaquette01.jpg', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'img', 'imgmaquette01.jpg'));
     });
-    app.use(accueilRoutes);
+ 
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, 'public','main.css'));
     });
-    app.use(accueilRoutes);
-    app.get('', (req, res) => {
+   
+    app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'main.js'));
     });
     //   app.use(accueilRoutes);
