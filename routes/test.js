@@ -4,6 +4,7 @@ const router = express.Router();
 
 const test = 10;
 //router.use(express.static('../views/index.ejs'));
+app.use(express.static('public'));
 
 router.get('/', (req, res) => {
    /* connection.query('SELECT * FROM products', (err, results) => {
