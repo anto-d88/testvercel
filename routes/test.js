@@ -176,14 +176,14 @@ header {
       </header>
       <main>
         <section class="boximgheader">
-          <img src="${res.sendFile(path.join(__dirname, 'public', 'imgmaquette01.jpg'))}" alt="image maquette ! ">
+          <img src="./img/imgmaquette01.jpg" alt="image maquette ! ">
         </section>
         <article class="article01">
           <h1>TITRE</h1>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
         </article>
         <section class="boximgbody">
-          <img src="./imgmaquette01.jpg" alt="image maquette ! ">
+          <img src="./img/imgbody01.jpg" alt="image maquette ! ">
           <img src="./img/imgbody01.jpg" alt="image maquette ! ">
           <img src="./img/imgbody01.jpg" alt="image maquette ! ">
         </section>
