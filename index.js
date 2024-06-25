@@ -11,7 +11,7 @@ app.use(express.static('public'));
 // Route de base
 //const accueilRoutes = require('./routes/test');
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.ejs'));
     });
     
     app.get('/img/imgmaquette01.jpg', (req, res) => {
