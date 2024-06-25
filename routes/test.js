@@ -174,7 +174,7 @@ header {
       </header>
       <main>
         <section class="boximgheader">
-          <img src="/img/imgmaquette01.jpg" alt="image maquette ! ">
+          <img src="https://testvercel-6vykfr3kz-anto-d88s-projects.vercel.app/img/imgmaquette01.jpg" alt="image maquette ! ">
         </section>
         <article class="article01">
           <h1>TITRE</h1>
