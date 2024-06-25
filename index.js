@@ -9,12 +9,12 @@ app.use(express.static('public'));
 //app.set('view engine', 'ejs');
 //app.set('views', './views');
 // Route de base
-const accueilRoutes = require('./routes/test');
-/*app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-    });*/
+//const accueilRoutes = require('./routes/test');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.ejs'));
+    });
     
-    app.use(accueilRoutes);
+//    app.use(accueilRoutes);
     app.get('/img/imgmaquette01.jpg', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'img', 'imgmaquette01.jpg'));
     });
