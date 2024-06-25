@@ -1,5 +1,6 @@
 const express = require('express');
 //const ejs = require('ejs');
+const path = require('path');
 const router = express.Router();
 
 const test = 10;
@@ -175,7 +176,7 @@ header {
       </header>
       <main>
         <section class="boximgheader">
-          <img src="https://testvercel-6vykfr3kz-anto-d88s-projects.vercel.app/img/imgmaquette01.jpg" alt="image maquette ! ">
+          <img src="${res.sendFile(path.join(__dirname, 'public', '/img/imgmaquette01.jpg'))}" alt="image maquette ! ">
         </section>
         <article class="article01">
           <h1>TITRE</h1>
