@@ -174,7 +174,7 @@ header {
       </header>
       <main>
         <section class="boximgheader">
-          <img src="../public/img/imgmaquette01.jpg" alt="image maquette ! ">
+          <img src="../../public/img/imgmaquette01.jpg" alt="image maquette ! ">
         </section>
         <article class="article01">
           <h1>TITRE</h1>
