@@ -196,7 +196,23 @@ header {
       </footer>
     
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="./public/main.js"></script>
+    <script>
+    var sidenav = document.getElementById("mySidenav");
+var openBtn = document.getElementById("openBtn");
+var closeBtn = document.getElementById("closeBtn");
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+  sidenav.classList.add("active");
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  sidenav.classList.remove("active");
+}</script>
 </body>
 </html>`);
        // res.render('../views/index.ejs');
