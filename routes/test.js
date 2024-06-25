@@ -176,7 +176,7 @@ header {
       </header>
       <main>
         <section class="boximgheader">
-          <img src="${res.sendFile(path.join(__dirname, 'public', '/img/imgmaquette01.jpg'))}" alt="image maquette ! ">
+          <img src="${res.sendFile(path.join(__dirname, 'public/img', 'imgmaquette01.jpg'))}" alt="image maquette ! ">
         </section>
         <article class="article01">
           <h1>TITRE</h1>
