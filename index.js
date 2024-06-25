@@ -18,6 +18,14 @@ const accueilRoutes = require('./routes/test');
     app.get('/img/imgmaquette01.jpg', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'img', 'imgmaquette01.jpg'));
     });
+    app.use(accueilRoutes);
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public','main.css'));
+    });
+    app.use(accueilRoutes);
+    app.get('', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'main.js'));
+    });
 // Route About
 /*app.get('/about', (req, res) => {
     res.send('About Page');
