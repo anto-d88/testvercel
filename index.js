@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'main.js'));
 });
-const accueilRoutes = require('./routes/test');
+const accueilRoutes = require('./routes/indextest');
 app.use(accueilRoutes);
 // Route About
 /*app.get('/about', (req, res) => {
