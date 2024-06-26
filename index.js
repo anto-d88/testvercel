@@ -24,6 +24,8 @@ app.get('/', (req, res) => {
 });
 const accueilRoutes = require('./routes/indextest');
 app.use(accueilRoutes);
+const historyRoutes = require('./routes/history');
+app.use(historyRoutes);
 // Route About
 /*app.get('/about', (req, res) => {
     res.send('About Page');
