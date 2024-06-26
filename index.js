@@ -4,14 +4,15 @@ const app = express();
 const port = 3000;
 
 // Middleware pour servir des fichiers statiques
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //app.set('view engine', 'ejs');
 //app.set('views', './views');
 // Route de base
 //const accueilRoutes = require('./routes/test');
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.ejs'));
+    res.render('index')
+    //res.sendFile(path.join(__dirname, 'public', 'index.ejs'));
     });
     
     app.get('/img/imgmaquette01.jpg', (req, res) => {
