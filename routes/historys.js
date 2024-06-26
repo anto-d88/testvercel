@@ -15,11 +15,11 @@ router.get('/history', (req, res) => {
   //});
 
 
-app.get('/', (req, res) => {
+app.get('/history', (req, res) => {
     res.sendFile(path.join(__dirname, 'public','main.css'));
 });
 
-app.get('/', (req, res) => {
+app.get('/history', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'main.js'));
 });
 module.exports = router;

@@ -5,22 +5,22 @@ const port = 3000;
 
 // Middleware pour servir des fichiers statiques
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
 // Route de base
 
 
 
 const accueilRoutes = require('./routes/test');
-app.use(accueilRoutes);
 const historyRoutes = require('./routes/historys');
-app.use(historyRoutes);
 // Route About
+app.use(accueilRoutes);
+app.use(historyRoutes);
 /*app.get('/about', (req, res) => {
     res.send('About Page');
-});
-
+    });
+    
 // Route Contact
 app.get('/contact', (req, res) => {
     res.send('Contact Page');
