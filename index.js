@@ -21,7 +21,7 @@ app.get('/history', (req, res) => {
 
 //const accueilRoutes = require('./routes/test');
 //const historyRoutes = require('./routes/historys');
-// Route About
+// Route Aboute
 //app.use(accueilRoutes);
 //app.use(historyRoutes);
 /*app.get('/about', (req, res) => {
