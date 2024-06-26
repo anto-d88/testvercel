@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/history', (req, res) => {
    
-        res.render('history', { products: results, user: req.session.user });
+        res.render('historys', { products: results, user: req.session.user });
       });
   //});
 
