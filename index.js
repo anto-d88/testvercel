@@ -26,7 +26,7 @@ app.use(accueilRoutes);
 app.use(historyRoutes);
 /*app.get('/about', (req, res) => {
     res.send('About Page');
- //   });
+ ////});
     
 // Route Contact
 app.get('/contact', (req, res) => {
