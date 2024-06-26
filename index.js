@@ -10,13 +10,20 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 // Route de base
 
+app.get('/', (req, res) => {
+    res.render('indextest')
+     });
 
+app.get('/history', (req, res) => {
+   
+        res.render('history', { products: results, user: req.session.user });
+      });     
 
-const accueilRoutes = require('./routes/test');
-const historyRoutes = require('./routes/historys');
+//const accueilRoutes = require('./routes/test');
+//const historyRoutes = require('./routes/historys');
 // Route About
-app.use(accueilRoutes);
-app.use(historyRoutes);
+//app.use(accueilRoutes);
+//app.use(historyRoutes);
 /*app.get('/about', (req, res) => {
     res.send('About Page');
     });
