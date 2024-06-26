@@ -17,12 +17,11 @@
               <li><a href="/produis">Nos produits</a></li>
               <li><a href="#">Témoignages</a></li>
               <li><a href="#">Contact</a></li>
-          <% if (!user) { %>
+          
               <li><a href="/register">Nous rejoindre</a></li>
               <li><a href="/login">Connection</a> </li>
-          <% } else { %>
-              <li><a href="/logout">Déconnexion</a></li>
-                      <% } %> 
+     
+              
                   
           
             </ul>
@@ -37,9 +36,9 @@
             </span>
           </a>
         </section>  
-         <section class="boxtextheader"> <% if (user) { %>
-              <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
-          <% } %> </section>
+         <section class="boxtextheader">
+              <h3 class="nomutilisateur"> </h3>
+           </section>
         </header>
         <main>
         <h1>L'Histoire de la Spiruline</h1>
