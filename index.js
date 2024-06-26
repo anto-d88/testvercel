@@ -4,11 +4,11 @@ const app = express();
 const port = 3000;
 
 // Middleware pour servir des fichiers statiques
-app.use(express.static(path.join(__dirname, 'public')));
 
-//app.set('view engine', 'ejs');
-//app.set('views', './views');
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 // Route de base
+app.use(express.static(path.join(__dirname, 'public')));
 //const accueilRoutes = require('./routes/test');
 app.get('/', (req, res) => {
     res.render('index')
