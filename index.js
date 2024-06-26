@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/history', (req, res) => {
    
-        res.render('historys');
+        res.render('history');
       });  */   
 
 const accueilRoutes = require('./routes/test');
@@ -26,7 +26,7 @@ app.use(accueilRoutes);
 app.use(historyRoutes);
 /*app.get('/about', (req, res) => {
     res.send('About Page');
-    });
+ //   });
     
 // Route Contact
 app.get('/contact', (req, res) => {
