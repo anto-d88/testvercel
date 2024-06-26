@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 app.get('/history', (req, res) => {
    
-        res.render('history');
+        res.render('historys');
       });     
 
 //const accueilRoutes = require('./routes/test');
