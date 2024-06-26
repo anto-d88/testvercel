@@ -11,7 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 //const accueilRoutes = require('./routes/test');
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('indextest')
     //res.sendFile(path.join(__dirname, 'public', 'index.ejs'));
     });
     
