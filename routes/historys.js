@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../db');
+//const connection = require('../db');
 
 router.get('/history', (req, res) => {
    /* connection.query('SELECT * FROM products', (err, results) => {
