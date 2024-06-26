@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 const accueilRoutes = require('./routes/test');
 app.use(accueilRoutes);
-const historyRoutes = require('./routes/history');
+const historyRoutes = require('./routes/historys');
 app.use(historyRoutes);
 // Route About
 /*app.get('/about', (req, res) => {
