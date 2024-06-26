@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 //const connection = require('../db');
 
@@ -12,4 +13,13 @@ router.get('/history', (req, res) => {
         res.render('history', { products: results, user: req.session.user });
       });
   //});
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public','main.css'));
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'main.js'));
+});
 module.exports = router;
