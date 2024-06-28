@@ -3,7 +3,8 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 
-const test = 10;
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 //router.use(express.static('../views/index.ejs'));
 
 

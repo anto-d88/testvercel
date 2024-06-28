@@ -11,7 +11,8 @@ const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
-
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 
 router.get('/register', (req, res) => {
   res.render('register');
