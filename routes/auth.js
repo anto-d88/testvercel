@@ -19,14 +19,14 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
- // let { username, password } = req.body;
-  //password = await bcrypt.hash(password, 10);
+  const { username, password } = req.body;
+  const hashpassword = await bcrypt.hash(password, 10);
    
 const { data, error } = await supabase
 .from('users')
 .insert([
-  { username:  req.body.username },
-  { password: req.body.password },
+  { username:  username },
+  { password: password, hashpassword },
 ])
 .select()
 if (error) {
@@ -47,14 +47,14 @@ router.post('/login', async (req, res) => {
 
   let { data: users, error } = await supabase
   .from('users')
-  .select(`username,${req.body.user}`)
+  .select(`username,${username}`)
   
 if (error) {
         return res.status(500).json({ error: error.message });
     }
     const user = users[0];
-    //const match = await bcrypt.compare(password, user.password);
-    if (req.body.password == user.password) {
+    const match = await bcrypt.compare(password, user.password);
+    if (match) {
       req.session.user = user;
       res.redirect('/');
     } else {
