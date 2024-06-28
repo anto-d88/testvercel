@@ -56,9 +56,10 @@ if (error) {
     }
     const user = users[0];
     console.log(user)
+    console.log(user.password)
     //const match = await bcrypt.compare(password, user.password);
     if (password == user.password) {
-     // req.session.user = user;
+      req.session.user = user;
       res.redirect('/');
     } else {
       res.status(400).send('Mot de passe incorrect');
