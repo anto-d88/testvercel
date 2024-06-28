@@ -21,6 +21,7 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   console.log(req.body)
+  console.log(username , password)
   //password = await bcrypt.hash(password, 10);
    
 const { data, error } = await supabase
