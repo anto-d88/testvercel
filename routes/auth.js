@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
     if (err) {
       return res.status(500).send('Erreur de requête SQL');
     }*/
-      const { users, error } = await supabase.auth.signUp({ email, password });
+      const { user, error } = await supabase.auth.signUp({ email, password });
       if (error) {
           return res.status(500).json({ error: error.message });
       }
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
         res.status(400).send('Mot de passe incorrect');
     }
     });*/
-    const { users, session, error } = await supabase.auth.signIn({ email, password });
+    const { user, error } = await supabase.auth.signIn({ email, password });
     if (error) {
         return res.status(500).json({ error: error.message });
     }
