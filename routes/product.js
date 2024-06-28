@@ -15,7 +15,7 @@ router.get('/produis', async (req, res) => {
       .from('products')
       .select('*');
     if (error) throw error;
-    res.render('produis', { products });
+    res.render('produis', { products , user: req.session.user});
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
@@ -24,13 +24,13 @@ router.get('/produis', async (req, res) => {
 router.get('/product/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const { data: product, error } = await supabase
+    const { data: products, error } = await supabase
       .from('products')
       .select('*')
       .eq('id', id)
       .single();
     if (error) throw error;
-    res.render('produis', { product });
+    res.render('produis', { products , user: req.session.user});
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
