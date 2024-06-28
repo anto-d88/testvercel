@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 //const bcrypt = require('bcrypt');
 //const connection = require('../db');
+// configuration connection postGreSQL
+const { createClient } = require('@supabase/supabase-js');
+const { Pool } = require('pg');
+const supabaseURL = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseURL, supabaseKey);
+
+const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
 
 router.get('/register', (req, res) => {
