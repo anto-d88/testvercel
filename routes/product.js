@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 //const connection = require('../db');
 
-app.get('/product', async (req, res) => {
+router.get('/product', async (req, res) => {
   try {
     const { data: products, error } = await supabase
       .from('products')
