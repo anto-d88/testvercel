@@ -19,7 +19,7 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
   let { username, password } = req.body;
-  password = await bcrypt.hash(password, 10);
+  //password = await bcrypt.hash(password, 10);
    
 const { data, error } = await supabase
 .from('users')
@@ -52,8 +52,8 @@ if (error) {
         return res.status(500).json({ error: error.message });
     }
     const user = users[0];
-    const match = await bcrypt.compare(password, user.password);
-    if (match) {
+    //const match = await bcrypt.compare(password, user.password);
+    if (password == user.password) {
       req.session.user = user;
       res.redirect('/');
     } else {
