@@ -9,16 +9,16 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
-router.get('/product', async (req, res) => {
+router.get('/produis', async (req, res) => {
   try {
     const { data: products, error } = await supabase
       .from('products')
       .select('*');
     if (error) throw error;
-    res.render('produis', { products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
+  res.render('produis', { products });
 });
 
 router.get('/product/:id', async (req, res) => {
@@ -30,10 +30,11 @@ router.get('/product/:id', async (req, res) => {
       .eq('id', id)
       .single();
     if (error) throw error;
-    res.render('produis', { product });
+    //res.render('produis', { product });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
+  res.json(results[0]);
 });
 
 module.exports = router;
