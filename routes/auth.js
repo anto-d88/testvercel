@@ -43,13 +43,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login/:username', async (req, res) => {
   const { username, password } = req.body;
 
 
   let { data: users, error } = await supabase
   .from('users')
   .select('*')
+  
   console.log(users)
 if (error) {
         return res.status(500).json({ error: error.message });
