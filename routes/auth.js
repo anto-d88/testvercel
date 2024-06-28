@@ -24,15 +24,15 @@ router.post('/register', async (req, res) => {
  //password = await bcrypt.hash(password, 10);
  console.log(req.body.username, req.body.password)
  
-const { data, error } = await supabase
-.from('users')
-.insert([
-  { username: req.body.username },
-  { password: req.body.password },
-])
-.select()
-if (error) {
-          return res.status(500).json({ error: error.message });
+ const { data, error } = await supabase
+ .from('users')
+ .insert([
+   { username: req.body.username, password: req.body.password },
+  ])
+  .select()
+  if (error) {
+    return res.status(500).json({ error: error.message });
+    console.log(req.body.username, req.body.password)
       }
 
     res.redirect('/');
