@@ -8,7 +8,7 @@ const test = 10;
 
 
 router.get('/', (req, res) => {
- res.render('indextest')
+ res.render('indextest', { user: req.session.user })
   });
 
 module.exports = router;

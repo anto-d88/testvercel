@@ -17,9 +17,12 @@
               <li><a href="/produis">Nos produits</a></li>
               <li><a href="#">Témoignages</a></li>
               <li><a href="#">Contact</a></li>
-          
-              <li><a href="/register">Nous rejoindre</a></li>
-              <li><a href="/login">Connection</a> </li>
+              <% if (!user) { %>
+                <li><a href="/register">Nous rejoindre</a></li>
+                <li><a href="/login">Connection</a> </li>
+            <% } else { %>
+                <li></li><a href="/logout">Déconnexion</a></li>
+                        <% } %> 
      
               
                   
@@ -36,8 +39,9 @@
             </span>
           </a>
         </section>  
-         <section class="boxtextheader">
-              <h3 class="nomutilisateur"> </h3>
+         <section class="boxtextheader"><% if (user) { %>
+            <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
+        <% } %>
            </section>
         </header>
         <main>
