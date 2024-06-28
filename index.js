@@ -11,7 +11,7 @@ const port = 3000;
 dotenv.config(); // Charge les variables d'environnement du fichier .env
 
 // configuration connection postGreSQL
-const supabaseURL = process.env.SUPABASE_BD_URL;
+const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKey);
 
