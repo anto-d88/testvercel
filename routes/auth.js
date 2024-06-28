@@ -18,14 +18,14 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  let { username, password } = req.body;
+  password = await bcrypt.hash(password, 10);
    
 const { data, error } = await supabase
 .from('users')
 .insert([
-  { username:  username},
-  { password: password, hashedPassword },
+  { username:  username },
+  { password: password },
 ])
 .select()
 if (error) {
