@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql2');
+//const mysql = require('mysql2');
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
 const session = require('express-session');
