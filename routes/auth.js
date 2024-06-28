@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 //const bcrypt = require('bcrypt');
 //const connection = require('../db');
 // configuration connection postGreSQL
