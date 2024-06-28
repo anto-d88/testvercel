@@ -28,9 +28,12 @@ const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
 // Configurer les sessions
 app.use(session({
-  cookie: { maxAge: 86400000 },
+  cookie: { maxAge: 30 * 24 * 60 * 1000,
+    secure: false,
+    httpOnly: true
+   },
   store: new memorystore({
-    checkPeriod: 86400000 // prune expired entries every 24h
+    checkPeriod: 30 * 24 * 60 * 1000 
   }),
   secret: 'votre_secret',
   resave: false,
