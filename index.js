@@ -10,6 +10,15 @@ const app = express();
 const port = 3000;
 dotenv.config(); // Charge les variables d'environnement du fichier .env
 
+// Middleware pour servir des fichiers statiques
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+// Route de base
+// Middleware pour parser les requêtes POST
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // configuration connection postGreSQL
 const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -29,15 +38,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// Middleware pour servir des fichiers statiques
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-// Route de base
-// Middleware pour parser les requêtes POST
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 const accueilRoutes = require('./routes/test');
 const historyRoutes = require('./routes/historys');
