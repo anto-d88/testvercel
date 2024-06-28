@@ -49,12 +49,13 @@ router.post('/login', async (req, res) => {
 
   let { data: users, error } = await supabase
   .from('users')
-  .select(`username,${username}`)
+  .select([{username: username}])
   
 if (error) {
         return res.status(500).json({ error: error.message });
     }
     const user = users[0];
+    console.log(user)
     //const match = await bcrypt.compare(password, user.password);
     if (password == user.password) {
       req.session.user = user;
