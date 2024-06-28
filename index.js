@@ -1,14 +1,13 @@
 const express = require('express');
 const path = require('path');
-//const dotenv = require('dotenv');
-//const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
+
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
 const session = require('express-session');
 const memorystore = require("memorystore")(session);
 const app = express();
 const port = 3000;
-//dotenv.config(); // Charge les variables d'environnement du fichier .env
 
 // Middleware pour servir des fichiers statiques
 

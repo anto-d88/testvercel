@@ -17,16 +17,20 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  const { email, password } = req.body;
-  /*const hashedPassword = await bcrypt.hash(password, 10);
-  connection.query('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword], (err, results) => {
-    if (err) {
-      return res.status(500).send('Erreur de requête SQL');
-    }*/
-      const { user, error } = await supabase.auth.signUp({ email, password });
-      if (error) {
+  const { username, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+   
+const { data, error } = await supabase
+.from('users')
+.insert([
+  { username:  username},
+  { password: password, hashedPassword },
+])
+.select()
+if (error) {
           return res.status(500).json({ error: error.message });
       }
+
     res.redirect('/');
   });
 
@@ -36,28 +40,27 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-  /*connection.query('SELECT * FROM users WHERE username = ?', [username], async (err, results) => {
-    if (err) {
-      return res.status(500).send('Erreur de requête SQL');
+  const { username, password } = req.body;
+
+
+  let { data: users, error } = await supabase
+  .from('users')
+  .select(`username,${username}`)
+  
+if (error) {
+        return res.status(500).json({ error: error.message });
     }
-    if (results.length === 0) {
-      return res.status(400).send('Utilisateur non trouvé');
-    }
-    const user = results[0];
+    const user = users[0];
     const match = await bcrypt.compare(password, user.password);
     if (match) {
       req.session.user = user;
-      } else {
-        res.status(400).send('Mot de passe incorrect');
+      res.redirect('/');
+    } else {
+      res.status(400).send('Mot de passe incorrect');
     }
-    });*/
-    const { user, error } = await supabase.auth.signIn({ email, password });
-    if (error) {
-        return res.status(500).json({ error: error.message });
-    }
-    res.redirect('/');
 });
+
+
 
 router.get('/logout', (req, res) => {
   req.session.destroy(err => {
