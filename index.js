@@ -8,6 +8,7 @@ const { Pool } = require('pg');
 //const session = require('express-session');
 //const memorystore = require("memorystore")(session);
 //const PgSession = require('connect-pg-simple')(session);
+const app = express();
 const port = 3000;
 // configuration connection postGreSQL
 const supabaseURL = process.env.SUPABASE_URL;
@@ -16,7 +17,7 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 // Middleware pour servir des fichiers statiques
-const app = express();
+
 // Middleware pour parser les requêtes POST
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

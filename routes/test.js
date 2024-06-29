@@ -12,11 +12,11 @@ router.use(express.json());
 
 
 router.get('/', (req, res) => {
-const username = req.session.user;
+//const username = req.session.user;
 
 //req.session.user=username;
 
- res.render('indextest', { user: username })
+ res.render('indextest', { user: "username" })
   });
 
 
