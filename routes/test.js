@@ -11,5 +11,9 @@ router.use(express.json());
 router.get('/', (req, res) => {
  res.render('indextest', { user: req.session.user })
   });
-
+  
+  router.get('/indextest', (req, res) => {
+   res.render('indextest', { user: req.session.user })
+    });
+    
 module.exports = router;
