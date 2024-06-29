@@ -17,12 +17,18 @@ const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
 router.get('/produis', async (req, res) => {
   
+    res.render('produis',{ user: req.session.user });
+ 
+});
+
+router.get('/produis', async (req, res) => {
+  
   try {
     const { data: products, error } = await supabase
       .from('products')
       .select('*');
     if (error) throw error;
-    res.render('produis', { products }, { user: req.session.user });
+    res.render('produis', { products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
@@ -37,7 +43,7 @@ router.get('/product/:id', async (req, res) => {
       .eq('id', id)
       .single();
     if (error) throw error;
-    res.render('produis', { products }, { user: req.session.user });
+    res.render('produis', { products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
