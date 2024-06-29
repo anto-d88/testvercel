@@ -18,7 +18,7 @@ router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
 // Configurer les sessions
-app.use(session({
+router.use(session({
   store: new PgSession({
     conString: process.env.SUPABASE_BD_URL // URL de connexion à la base de données PostgreSQL
   }),
