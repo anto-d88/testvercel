@@ -10,7 +10,7 @@ router.use(express.json());
 
 router.get('/', (req, res) => {
 const username = req.session.user;
-console.log('hello '+ username[0])
+console.log('hello '+ username)
 
  res.render('indextest', { user: username })
   });
