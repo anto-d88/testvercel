@@ -55,7 +55,9 @@ router.get('/product/:id', async (req, res) => {
       .eq('id', id)
       .single();
     if (error) throw error;
-    res.render('produis', { products: products , user: username});
+    if(username == undefined){
+      res.redirect('/login')
+    }else {res.render('produis', { products: products , user: username});}
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }

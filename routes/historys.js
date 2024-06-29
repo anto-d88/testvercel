@@ -20,11 +20,17 @@ router.use(session({
   saveUninitialized: false
 }));
 
+
+
 router.get('/history', (req, res) => {
   const username = req.session.user;
   console.log('hello '+ username)
   req.session.user=username;
-        res.render('history', { user: username });
+  if(username == undefined){
+    res.redirect('/login')
+  }else{
+    res.render('history', { user: username });
+  }
       });
   //});
 
