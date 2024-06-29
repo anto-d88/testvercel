@@ -1,51 +1,34 @@
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const cookieParser = require('cookie-parser');
+
 const { createClient } = require('@supabase/supabase-js');
-const sessionMiddleware = require('./sessionMiddleware');
 const { Pool } = require('pg');
-//const session = require('express-session');
-//const memorystore = require("memorystore")(session);
-//const PgSession = require('connect-pg-simple')(session);
+const session = require('express-session');
+const memorystore = require("memorystore")(session);
+const PgSession = require('connect-pg-simple')(session);
 const app = express();
 const port = 3000;
+
+// Middleware pour servir des fichiers statiques
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+// Route de base
+// Middleware pour parser les requêtes POST
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // configuration connection postGreSQL
 const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
-// Middleware pour servir des fichiers statiques
-
-// Middleware pour parser les requêtes POST
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser());
-app.use(sessionMiddleware);
 
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-// Route de base
-
-
-const accueilRoutes = require('./routes/test');
-const historyRoutes = require('./routes/historys');
-const authRoutes = require('./routes/auth');
-const productRoutes = require('./routes/product');
-// Route Aboute
-app.use(accueilRoutes);
-app.use(historyRoutes);
-app.use(authRoutes);
-app.use(productRoutes);
-
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
 // Configurer les sessions
-/*app.use(session({
+app.use(session({
   store: new PgSession({
     conString: process.env.SUPABASE_URL // URL de connexion à la base de données PostgreSQL
   }),
@@ -60,9 +43,18 @@ app.listen(port, () => {
   secret: process.env.SESSION_SECRET || 'your_secret_key',
   resave: false,
   saveUninitialized: false
-}));*/
+}));
 
 
+const accueilRoutes = require('./routes/test');
+const historyRoutes = require('./routes/historys');
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/product');
+// Route Aboute
+app.use(accueilRoutes);
+app.use(historyRoutes);
+app.use(authRoutes);
+app.use(productRoutes);
 /*app.get('/about', (req, res) => {
     res.send('About Page');
  /////});
@@ -82,4 +74,6 @@ app.get('/contact', (req, res) => {
 });*/
 
 // Démarrer le serveur
-
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});

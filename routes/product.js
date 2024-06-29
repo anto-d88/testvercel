@@ -13,6 +13,12 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
+const authenticate = (req, res, next) => {
+  if (!req.session.user) {
+    return res.redirect('/login');
+  }
+  next();
+};
 
 
 router.get('/produis', async (req, res) => {
@@ -29,7 +35,7 @@ router.get('/produis', async (req, res) => {
   }
 });
 
-router.get('/product/:id', async (req, res) => {
+router.get('/product/:id',async (req, res) => {
   const username = req.session.user;
   console.log('hello '+ username)
   req.session.user=username;
