@@ -8,11 +8,15 @@ router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
 
-
 router.get('/', (req, res) => {
-  res.json(req.session.user);
-  
-});
+const username = req.session.user;
+console.log('hello '+ username)
+req.session.user=username;
+
+ res.render('indextest', { user: username })
+  });
+
+
 
 const authenticate = (req, res, next) => {
   if (!req.session.user) {
@@ -21,12 +25,12 @@ const authenticate = (req, res, next) => {
   next();
 };
 
-router.get('/', authenticate, (req, res) => {
-const username = req.session.user;
-console.log('hello '+ username)
-req.session.user=username;
-
- res.render('indextest', { user: username })
-  });
+router.get('/indextest', (req, res) => {
+  const username = req.session.user;
+  console.log('hello '+ username)
+  req.session.user=username;
+  
+   res.render('indextest', { user: username })
+    });
 
 module.exports = router;
