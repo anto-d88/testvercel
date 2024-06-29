@@ -22,7 +22,7 @@ router.get('/produis', async (req, res) => {
       .from('products')
       .select('*');
     if (error) throw error;
-    res.render('produis', { products , user: req.session.user});
+    res.render('produis', { products }, { user: req.session.user });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
@@ -37,7 +37,7 @@ router.get('/product/:id', async (req, res) => {
       .eq('id', id)
       .single();
     if (error) throw error;
-    res.render('produis', { products , user: req.session.user});
+    res.render('produis', { products }, { user: req.session.user });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
