@@ -13,8 +13,8 @@ router.use(express.json());
 
 router.get('/', (req, res) => {
 const username = req.session.user;
-console.log('hello '+ username)
-req.session.user=username;
+
+//req.session.user=username;
 
  res.render('indextest', { user: username })
   });
@@ -22,8 +22,8 @@ req.session.user=username;
 
 router.get('/indextest', (req, res) => {
   const username = req.session.user;
-  console.log('hello '+ username)
-  req.session.user=username;
+ // console.log('hello '+ username)
+  //req.session.user=username;
   
    res.render('indextest', { user: username })
     });
