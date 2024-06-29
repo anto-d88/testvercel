@@ -1,6 +1,5 @@
 const express = require('express');
 
-//const ejs = require('ejs');
 const path = require('path');
 const router = express.Router();
 
@@ -13,9 +12,6 @@ router.use(express.json());
 
 router.get('/', (req, res) => {
 const username = req.session.user;
-console.log('hello '+ username)
-req.session.user=username;
-
  res.render('indextest', { user: username })
   });
 
@@ -30,9 +26,6 @@ const authenticate = (req, res, next) => {
 
 router.get('/indextest', (req, res) => {
   const username = req.session.user;
-  console.log('hello '+ username)
-  req.session.user=username;
-  
    res.render('indextest', { user: username })
     });
 

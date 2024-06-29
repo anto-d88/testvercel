@@ -1,5 +1,5 @@
 const express = require('express');
-//const path = require('path');
+const path = require('path');
 const router = express.Router();
 //const connection = require('../db');
 router.use(express.urlencoded({ extended: true }));
@@ -16,11 +16,7 @@ const authenticate = (req, res, next) => {
 
 router.get('/history', (req, res) => {
   const username = req.session.user;
-  console.log('hello '+ username)
-  req.session.user=username;
- 
-    res.render('history', { user: username });
-  
+    res.render('history', { user: username }); 
       });
   //});
 

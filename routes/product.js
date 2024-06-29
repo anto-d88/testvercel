@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-//const connection = require('../db');
+const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
 
@@ -23,7 +23,6 @@ const authenticate = (req, res, next) => {
 
 router.get('/produis', async (req, res) => {
   const username = req.session.user;
-  req.session.user=username;
   try {
     const { data: products, error } = await supabase
       .from('products')
@@ -37,8 +36,6 @@ router.get('/produis', async (req, res) => {
 
 router.get('/product/:id',async (req, res) => {
   const username = req.session.user;
-  console.log('hello '+ username)
-  req.session.user=username;
   const { id } = req.params;
   try {
     const { data: products, error } = await supabase
@@ -51,7 +48,6 @@ router.get('/product/:id',async (req, res) => {
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
-  //res.json(results[0]);
 });
 
 module.exports = router;

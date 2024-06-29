@@ -36,8 +36,8 @@ router.post('/register', async (req, res) => {
     return res.status(500).json({ error: error.message });
     console.log(req.body.username, req.body.password)
       }
-
-    res.redirect('/');
+      req.session.user = user;
+      res.redirect('indextest')
   });
 
 
@@ -58,35 +58,21 @@ if (error) {
         return res.status(500).json({ error: error.message });
     }
     const user = users[0];
-    console.log(user)
-    console.log(user.password)
     //const match = await bcrypt.compare(password, user.password);
     if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
       req.session.user = user;
-      console.log(req.session.user);
-      req.session.save((err) => {
-        if (err) {
-          console.error('Erreur lors de la sauvegarde de la session:', err);
-          return res.status(500).send('Erreur lors de la sauvegarde de la session');
-        }else{
-        console.log('Session sauvegardée:', req.session);
-    
-        res.redirect('/');}
-      });
-    
-      
-    
+      res.redirect('indextest')
 });
 
 
 
-/*router.get('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       return res.status(500).send('Erreur lors de la déconnexion');
     }
     res.redirect('/');
   });
-});*/
+});
 
 module.exports = router;
