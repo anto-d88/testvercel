@@ -9,11 +9,10 @@ router.use(express.json());
 
 
 router.get('/', (req, res) => {
- res.render('indextest', { user: req.session.user })
+const username = req.session.user;
+console.log('hello '+ username)
+
+ res.render('indextest', { user: username })
   });
-  
-  router.get('/indextest', (req, res) => {
-   res.render('indextest', { user: req.session.user })
-    });
-    
+
 module.exports = router;

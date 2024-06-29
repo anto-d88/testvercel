@@ -6,8 +6,8 @@ router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
 router.get('/history', (req, res) => {
-   
-        res.render('history', { user: req.session.user });
+  const username = req.session.user;
+        res.render('history', { user: username });
       });
   //});
 
