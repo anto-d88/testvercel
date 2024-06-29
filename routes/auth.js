@@ -34,7 +34,6 @@ router.post('/register', async (req, res) => {
   .select()
   if (error) {
     return res.status(500).json({ error: error.message });
-    console.log(req.body.username, req.body.password)
       }
       req.session.user = user;
       res.redirect('indextest')

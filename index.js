@@ -23,14 +23,20 @@ const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
 // Configurer les sessions
 app.use(session({
-  cookie: { maxAge: 86400000,
-    secure: false,
-    httpOnly: true,
-    sameSite: 'strict'
-   },
+ 
   store: new memorystore({
-    checkPeriod: 86400000 // prune expired entries every 24h
+    checkPeriod: 86400000, // Vérifie les sessions expirées toutes les 24h (en millisecondes)
+    max: 100, // Nombre maximum de sessions à conserver en mémoire
+    ttl: 86400, // Durée de vie des sessions en secondes (24h)
+    stale: true, // Permet de supprimer les sessions "stale" (vieillies)
+    secret: process.env.SESSION_SECRET, // Secret utilisé pour signer le cookie de session
+    resave: false, // Ne sauvegarde pas la session si elle n'est pas modifiée
+    saveUninitialized: false // Ne crée pas de session si elle n'est pas initialisée
   }),
+   cookie: { maxAge: 86400000,
+    secure: false,
+    httpOnly: true
+   },
   secret: process.env.SESSION_SECRET || 'your_secret_key',
   resave: false,
   saveUninitialized: false
