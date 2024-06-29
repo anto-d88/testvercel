@@ -22,6 +22,7 @@ router.use(session({
 
 router.get('/history', (req, res) => {
   const username = req.session.user;
+  console.log('hello '+ username)
   req.session.user=username;
         res.render('history', { user: username });
       });
