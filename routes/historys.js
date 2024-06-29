@@ -5,24 +5,18 @@ const router = express.Router();
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
-const authenticate = (req, res, next) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  next();
-};
 
 
 
-router.get('/history', authenticate, (req, res) => {
+
+router.get('/history', (req, res) => {
   const username = req.session.user;
-  console.log('hello '+ username)
   req.session.user=username;
  
     res.render('history', { user: username });
   
       });
-  //});
+  
 
 
 

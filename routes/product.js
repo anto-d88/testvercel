@@ -13,15 +13,9 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
-const authenticate = (req, res, next) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  next();
-};
 
 
-router.get('/produis', authenticate, async (req, res) => {
+router.get('/produis', async (req, res) => {
   const username = req.session.user;
   req.session.user=username;
   try {
