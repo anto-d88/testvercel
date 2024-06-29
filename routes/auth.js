@@ -81,14 +81,15 @@ if (error) {
     //const match = await bcrypt.compare(password, user.password);
     if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
       req.session.user = user;
+      console.log(user.session.user [0]);
       req.session.save((err) => {
         if (err) {
           console.error('Erreur lors de la sauvegarde de la session:', err);
           return res.status(500).send('Erreur lors de la sauvegarde de la session');
-        }
+        }else{
         console.log('Session sauvegardée:', req.session);
     
-        res.redirect('/');
+        res.redirect('/');}
       });
     
       
