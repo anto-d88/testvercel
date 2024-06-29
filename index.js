@@ -10,11 +10,6 @@ const PgSession = require('connect-pg-simple')(session);
 const app = express();
 const port = 3000;
 
-// Middleware pour servir des fichiers statiques
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 // Route de base
 // Middleware pour parser les requêtes POST
 app.use(express.urlencoded({ extended: true }));
@@ -45,6 +40,11 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// Middleware pour servir des fichiers statiques
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 const accueilRoutes = require('./routes/test');
 const historyRoutes = require('./routes/historys');
