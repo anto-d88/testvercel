@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt');
 //const bcrypt = require('bcrypt');
 //const connection = require('../db');
 // configuration connection postGreSQL
+const session = require('express-session');
+const memorystore = require("memorystore")(session);
+const PgSession = require('connect-pg-simple')(session);
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
 const supabaseURL = process.env.SUPABASE_URL;
@@ -13,6 +16,23 @@ const supabase = createClient(supabaseURL, supabaseKey);
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
+
+// Configurer les sessions
+app.use(session({
+  store: new PgSession({
+    conString: process.env.SUPABASE_BD_URL // URL de connexion à la base de données PostgreSQL
+  }),
+  cookie: { maxAge: 86400000,
+    secure: false,
+    httpOnly: true
+   },
+  store: new memorystore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  }),
+  secret: process.env.SESSION_SECRET || 'your_secret_key',
+  resave: false,
+  saveUninitialized: false
+}));
 
 router.get('/register', (req, res) => {
   res.render('register');

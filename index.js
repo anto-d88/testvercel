@@ -39,7 +39,7 @@ app.use(session({
   store: new memorystore({
     checkPeriod: 86400000 // prune expired entries every 24h
   }),
-  secret: 'votre_secret',
+  secret: process.env.SESSION_SECRET || 'your_secret_key',
   resave: false,
   saveUninitialized: false
 }));
