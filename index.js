@@ -8,7 +8,10 @@ const session = require('express-session');
 const memorystore = require("memorystore")(session);
 const app = express();
 const port = 3000;
-
+const accueilRoutes = require('./routes/test');
+const historyRoutes = require('./routes/historys');
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/product');
 // Route de base
 // Middleware pour parser les requêtes POST
 app.use(express.urlencoded({ extended: true }));
@@ -48,10 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const accueilRoutes = require('./routes/test');
-const historyRoutes = require('./routes/historys');
-const authRoutes = require('./routes/auth');
-const productRoutes = require('./routes/product');
+
 // Route Aboute
 app.use(accueilRoutes);
 app.use(historyRoutes);
