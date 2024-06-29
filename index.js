@@ -6,6 +6,7 @@ const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
 const session = require('express-session');
 const memorystore = require("memorystore")(session);
+const PgSession = require('connect-pg-simple')(session);
 const app = express();
 const port = 3000;
 
@@ -28,6 +29,9 @@ const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
 // Configurer les sessions
 app.use(session({
+  store: new PgSession({
+    conString: process.env.SUPABASE_BD_URL // URL de connexion à la base de données PostgreSQL
+  }),
   cookie: { maxAge: 86400000,
     secure: false,
     httpOnly: true

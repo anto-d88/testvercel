@@ -59,23 +59,31 @@ if (error) {
     console.log(user)
     console.log(user.password)
     //const match = await bcrypt.compare(password, user.password);
-    if (password == user.password) {
+    if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
       req.session.user = user;
-      res.redirect('/');
-    } else {
-      res.status(400).send('Mot de passe incorrect');
-    }
+      req.session.save((err) => {
+        if (err) {
+          console.error('Erreur lors de la sauvegarde de la session:', err);
+          return res.status(500).send('Erreur lors de la sauvegarde de la session');
+        }
+        console.log('Session sauvegardée:', req.session);
+    
+        res.redirect('/');
+      });
+    
+      
+    
 });
 
 
 
-router.get('/logout', (req, res) => {
+/*router.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       return res.status(500).send('Erreur lors de la déconnexion');
     }
     res.redirect('/');
   });
-});
+});*/
 
 module.exports = router;
