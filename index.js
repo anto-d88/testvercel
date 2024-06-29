@@ -3,6 +3,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const cookieParser = require('cookie-parser');
 const { createClient } = require('@supabase/supabase-js');
+const sessionMiddleware = require('./sessionMiddleware');
 const { Pool } = require('pg');
 //const session = require('express-session');
 //const memorystore = require("memorystore")(session);
