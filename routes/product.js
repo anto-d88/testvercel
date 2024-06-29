@@ -22,6 +22,9 @@ const authenticate = (req, res, next) => {
 
 
 router.get('/produis', async (req, res) => {
+  console.log(req.sessionStore)
+  console.log(req.session)
+  console.log(req.sessionID)
   const username = req.session.user;
   try {
     const { data: products, error } = await supabase

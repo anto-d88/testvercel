@@ -25,6 +25,10 @@ const authenticate = (req, res, next) => {
 };
 
 router.get('/indextest', (req, res) => {
+  console.log(req.sessionStore)
+  console.log(req.session)
+  console.log(req.sessionID)
+
   const username = req.session.user;
    res.render('indextest', { user: username })
     });
