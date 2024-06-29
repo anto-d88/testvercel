@@ -29,7 +29,7 @@ router.get('/produis', async (req, res) => {
   }
 });
 
-router.get('/product/:id',authenticate, async (req, res) => {
+router.get('/product/:id', async (req, res) => {
   const username = req.session.user;
   console.log('hello '+ username)
   req.session.user=username;
