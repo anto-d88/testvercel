@@ -8,12 +8,7 @@ router.use(express.json());
 
 
 
-router.get('/history', (req, res) => {
 
-  
-  
-    res.render('history'); 
-      });
 
 router.get('/history/:userId', (req, res) => {
 
