@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-//const connection = require('../db');
-const session = require('express-session');
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
@@ -20,7 +18,7 @@ router.get('/history', (req, res) => {
   console.log(req.session)
   console.log(req.sessionID)
  
-  const username = req.session.user;
+  const username = req.session.user2 || req.session.user;
     res.render('history', { user: username }); 
       });
   //});
