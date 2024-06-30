@@ -95,7 +95,7 @@ header {
 
 
     #hidenid {
-      display: none;
+      opacity: 0;
     }
   
 
