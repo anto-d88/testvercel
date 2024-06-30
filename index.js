@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
-
+const session = require('express-session');
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
 
@@ -22,6 +22,7 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
+app.use(session)
 
 
 
