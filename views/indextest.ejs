@@ -65,18 +65,9 @@
       </main>
       <footer>
       </footer>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const hidenid = document.getElementById('hidenid').value;
-          console.log(hidenid)
-          const userId = hidenid ;
-          const userLinkhistory = document.getElementById('history');
-          userLinkhistory.href = `/history?userId=${encodeURIComponent(userId)}`;
-          const userLinkproduis = document.getElementById('produis');
-          userLinkproduis.href = `/produis?userId=${encodeURIComponent(userId)}`;
-        });
-      </script>
-    <script src="https://js.stripe.com/v3/"></script>
+   
+   
     <script src="./main.js"></script>
+    <script src="./id.js"></script>
 </body>
 </html>
