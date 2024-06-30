@@ -93,6 +93,12 @@ header {
   left: 0;
 }
 
+
+    #hidenid {
+      display: none;
+    }
+  
+
 /* Close btn */
 .sidenav .close {
   position: absolute;

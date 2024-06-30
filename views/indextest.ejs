@@ -10,13 +10,13 @@
 </head>
 <body>
     <header>
-        
+        <p id="hidenid"><% user.id %></p>
         <div id="mySidenav" class="sidenav">
           <a id="closeBtn" href="#" class="close">×</a>
           <ul>
             <li><a href="#">A propos</a></li>
-            <li><a href="/history">L'histoire de la spiruline</a></li>
-            <li><a href="/produis">Nos produits</a></li>
+            <li><a href="/history" id="history">L'histoire de la spiruline</a></li>
+            <li><a href="/produis" id="produis">Nos produits</a></li>
             <li><a href="#">Témoignages</a></li>
             <li><a href="#">Contact</a></li>
             <% if (!user) { %>
@@ -65,7 +65,17 @@
       </main>
       <footer>
       </footer>
-    
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const hidenid = document.getElementById('hidenid');
+          
+          const userId = hidenid.value ;
+          const userLinkhistory = document.getElementById('history');
+          userLinkhistory.href = `/history/${encodeURIComponent(userId)}`;
+          const userLinkproduis = document.getElementById('produis');
+          userLinkproduis.href = `/produis/${encodeURIComponent(userId)}`;
+        });
+      </script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="./main.js"></script>
 </body>
