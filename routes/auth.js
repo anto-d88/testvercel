@@ -58,7 +58,7 @@ router.post('/register', async (req, res) => {
     return res.status(500).json({ error: error.message });
       }
       req.session.user = user;
-      res.render('indextest', { user: username })
+      res.render('indextest', { user: req.session.user })
   });
 
 
@@ -82,7 +82,7 @@ if (error) {
     //const match = await bcrypt.compare(password, user.password);
     if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
       req.session.user = user;
-      res.render('indextest', { user: username })
+      res.render('indextest', { user: req.session.user })
 });
 
 
