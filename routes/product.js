@@ -25,6 +25,7 @@ router.get('/produis', async (req, res) => {
   console.log(req.sessionStore)
   console.log(req.session)
   console.log(req.sessionID)
+  req.session.user = req.session.user;
   const username = req.session.user;
   try {
     const { data: products, error } = await supabase
@@ -38,6 +39,7 @@ router.get('/produis', async (req, res) => {
 });
 
 router.get('/product/:id',async (req, res) => {
+  req.session.user = req.session.user;
   const username = req.session.user;
   const { id } = req.params;
   try {

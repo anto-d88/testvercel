@@ -34,7 +34,7 @@ app.use(session({
     stale: true, // Permet de supprimer les sessions "stale" (vieillies)
     secret: process.env.SESSION_SECRET, // Secret utilisé pour signer le cookie de session
     resave: false, // Ne sauvegarde pas la session si elle n'est pas modifiée
-    saveUninitialized: false // Ne crée pas de session si elle n'est pas initialisée
+    saveUninitialized: true // Ne crée pas de session si elle n'est pas initialisée
   }),
    cookie: { maxAge: 86400000,
     secure: false,
