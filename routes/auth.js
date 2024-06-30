@@ -4,10 +4,10 @@ const bcrypt = require('bcrypt');
 //const bcrypt = require('bcrypt');
 //const connection = require('../db');
 // configuration connection postGreSQL
-const session = require('express-session');
-const memorystore = require("memorystore")(session);
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
+const session = require('express-session');
+const memorystore = require("memorystore")(session);
 const supabaseURL = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseURL, supabaseKey);
@@ -81,7 +81,7 @@ if (error) {
     //const match = await bcrypt.compare(password, user.password);
     if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
       req.session.user = user;
-      res.redirect('indextest', { user: req.session.user })
+      res.render('indextest', { user: req.session.user })
 });
 
 
