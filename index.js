@@ -22,7 +22,7 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
-app.use(session)
+
 
 
 
