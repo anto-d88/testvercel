@@ -22,17 +22,13 @@ const authenticate = (req, res, next) => {
 
 
 router.get('/produis', async (req, res) => {
-  console.log(req.sessionStore)
-  console.log(req.session)
-  console.log(req.sessionID)
-  const username = req.session.user  ;
-  console.log(username)
+ 
   try {
     const { data: products, error } = await supabase
       .from('products')
       .select('*');
     if (error) throw error;
-    res.render('produis', { products: products , user: username});
+    res.render('produis', { products: products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
@@ -40,7 +36,7 @@ router.get('/produis', async (req, res) => {
 
 router.get('/product/:id',async (req, res) => {
 
-  const username = req.session.user;
+ 
   const { id } = req.params;
   try {
     const { data: products, error } = await supabase
@@ -49,7 +45,7 @@ router.get('/product/:id',async (req, res) => {
       .eq('id', id)
       .single();
     if (error) throw error;
-   res.render('produis', { products: products , user: username});
+   res.render('produis', { products: products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
