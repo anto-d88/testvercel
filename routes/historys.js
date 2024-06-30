@@ -14,10 +14,10 @@ router.get('/history', (req, res) => {
   
     res.render('history', { user: userId }); 
       });
-      
+
 router.get('/history:userId', (req, res) => {
 
-  const userId = req.query.userId;
+  const userId = req.params.userId;
   
     res.render('history', { user: userId }); 
       });
