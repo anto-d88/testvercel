@@ -17,8 +17,9 @@ router.get('/history', (req, res) => {
   console.log(req.sessionStore)
   console.log(req.session)
   console.log(req.sessionID)
- 
-  const username = req.session.user2 || req.session.user;
+  
+  const username = req.session.user;
+  console.log(username)
     res.render('history', { user: username }); 
       });
   //});

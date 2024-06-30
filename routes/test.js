@@ -29,9 +29,10 @@ router.get('/indextest', (req, res) => {
   console.log(req.session)
   console.log(req.sessionID)
   
-
+  
   const username = req.session.user;
-  req.session.user2 = username;
+  console.log(username)
+  
    res.render('indextest', { user: username })
     });
 
