@@ -70,9 +70,9 @@
     const hidenid = document.getElementById('hidenid').innerHTML;
     const userId = hidenid ;
     const userLinkhistory = document.getElementById('history');
-    userLinkhistory.href = `/history?userId=${encodeURIComponent(userId)}`;
+    userLinkhistory.href = `/history/${encodeURIComponent(userId)}`;
     const userLinkproduis = document.getElementById('produis');
-    userLinkproduis.href = `/produis?userId=${encodeURIComponent(userId)}`;
+    userLinkproduis.href = `/produis/${encodeURIComponent(userId)}`;
   });
       </script>
    

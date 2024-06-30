@@ -10,12 +10,12 @@ router.use(express.json());
 
 router.get('/history', (req, res) => {
 
-  const userId = req.query.userId;
   
-    res.render('history', { user: userId }); 
+  
+    res.render('history'); 
       });
 
-router.get('/history:userId', (req, res) => {
+router.get('/history/:userId', (req, res) => {
 
   const userId = req.params.userId;
   
