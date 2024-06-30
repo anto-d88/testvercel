@@ -17,7 +17,7 @@ router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
 // Configurer les sessions
-app.use(session({
+router.use(session({
  
   store: new memorystore({
     checkPeriod: 86400000, // Vérifie les sessions expirées toutes les 24h (en millisecondes)
