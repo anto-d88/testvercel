@@ -39,13 +39,13 @@ if (error1) {
       .select('*');
     if (error2) throw error2;
     console.log(users[0].username)
-    res.render('produis', { products: products, user: users[0].username });
+    res.render('produis', { user: users[0].username, products: products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
 });
 
-/*router.get('/product/:id',async (req, res) => {
+router.get('/product/:id',async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -55,11 +55,11 @@ if (error1) {
       .eq('id', id)
       .single();
     if (error) throw error;
-    console.log(products)
-   res.json(products);
+    console.log(products[0])
+   res.json(products[0]);
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
-});*/
+});
 
 module.exports = router;
