@@ -16,7 +16,7 @@ router.use(express.json());
 
 
 
-router.get('/history', (req, res) => {
+router.get('/history', async (req, res) => {
 
   const userId = req.query.userId;
   let { data: users, error } = await supabase
