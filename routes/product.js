@@ -45,7 +45,7 @@ if (error1) {
   }
 });
 
-router.get('/product/:id',async (req, res) => {
+/*router.get('/product/:id',async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -60,6 +60,6 @@ router.get('/product/:id',async (req, res) => {
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
-});
+});*/
 
 module.exports = router;
