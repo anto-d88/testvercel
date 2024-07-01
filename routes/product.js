@@ -25,26 +25,27 @@ router.get('/produis', async (req, res) => {
  
   const userId = req.query.userId;
   const iduser = Number(userId);
-  let { data: users, error } = await supabase
+ try { 
+  let { data: users, error1 } = await supabase
   .from('users')
   .select('*')
   .eq('id', iduser)
-if (error) {
-        return res.status(500).json({ error: error.message });
+if (error1) {
+        return res.status(500).json({ error: error1.message });
     }
-  try {
-    const { data: products, error } = await supabase
+  
+    const { data: products, error2 } = await supabase
       .from('products')
       .select('*');
-    if (error) throw error;
-   // console.log(users[0].username)
+    if (error2) throw error2;
+    console.log(users[0].username)
     res.render('produis', { products: products, user: users[0].username });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
 });
 
-router.get('/product/:id',async (req, res) => {
+/*router.get('/product/:id',async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -59,6 +60,6 @@ router.get('/product/:id',async (req, res) => {
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
-});
+});*/
 
 module.exports = router;
