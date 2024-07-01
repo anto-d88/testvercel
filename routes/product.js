@@ -54,8 +54,8 @@ router.get('/product/:id',async (req, res) => {
       .eq('id', id)
       .single();
     if (error) throw error;
-    
-   res.json('produis', { products: products });
+    console.log(products)
+   res.json(products);
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
