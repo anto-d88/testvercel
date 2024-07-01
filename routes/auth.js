@@ -18,7 +18,7 @@ router.use(express.json());
 
 // Configurer les sessions
 
-router.use(session({
+/*router.use(session({
  
   store: new memorystore({
     checkPeriod: 86400000, // Vérifie les sessions expirées toutes les 24h (en millisecondes)
@@ -36,7 +36,7 @@ router.use(session({
   secret: process.env.SESSION_SECRET || 'your_secret_key',
   resave: false,
   saveUninitialized: true
-}));
+}));*/
 
 router.get('/register', (req, res) => {
   res.render('register');
@@ -81,8 +81,8 @@ if (error) {
     const user = users[0];
     //const match = await bcrypt.compare(password, user.password);
     if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
-      req.session.user = user;
-      res.render('indextest', { user: req.session.user })
+     // req.session.user = user;
+      res.render('indextest', { user: users[0] })
 });
 
 

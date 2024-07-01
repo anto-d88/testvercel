@@ -9,12 +9,13 @@
 </head>
 <body>
     <header>
+        <p id="hidenid"><%= user.id %></p>
         <div id="mySidenav" class="sidenav">
             <a id="closeBtn" href="#" class="close">×</a>
             <ul>
-              <li><a href="/indextest">Accueil</a></li>
+              <li><a href="/indextest" id="accueil">Accueil</a></li>
               <li><a href="#">A propos</a></li>
-              <li><a href="/produis">Nos produits</a></li>
+              <li><a href="/produis" id="produis">Nos produits</a></li>
               <li><a href="#">Témoignages</a></li>
               <li><a href="#">Contact</a></li>
               <% if (!user) { %>
@@ -40,7 +41,7 @@
           </a>
         </section>  
          <section class="boxtextheader"><% if (user) { %>
-            <h3 class="nomutilisateur">Bienvenue, <%= user %>! </h3>
+            <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
         <% } %>
            </section>
         </header>
@@ -72,6 +73,16 @@
    <!-- <footer>
         <p>&copy; 2024 Histoire de la Spiruline</p>
     </footer>-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+      const hidenid = document.getElementById('hidenid').innerHTML;
+      const userId = hidenid ;
+      const userLinkaccueil = document.getElementById('accueil');
+      userLinkaccueil.href = `/indextest?userId=${encodeURIComponent(userId)}`;
+      const userLinkproduis = document.getElementById('produis');
+      userLinkproduis.href = `/produis?userId=${encodeURIComponent(userId)}`;
+    });
+        </script>
     <script src="./main.js"></script>
 </body>
 </html>

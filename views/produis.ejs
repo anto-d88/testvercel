@@ -10,13 +10,13 @@
 </head>
 <body>
     <header>
-        
+      <p id="hidenid"><%= user.id %></p>
         <div id="mySidenav" class="sidenav">
           <a id="closeBtn" href="#" class="close">×</a>
           <ul>
-            <li><a href="/indextest">Accueil</a></li>
+            <li><a href="/indextest" id="accueil">Accueil</a></li>
             <li><a href="#">A propos</a></li>
-            <li><a href="/history">L'histoire de la spiruline</a></li>
+            <li><a href="/history" id="history">L'histoire de la spiruline</a></li>
             <li><a href="/produis">Nos produits</a></li>
             <li><a href="#">Témoignages</a></li>
             <li><a href="#">Contact</a></li>
@@ -76,7 +76,16 @@
       </main>
       <footer>
       </footer>
-   
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+      const hidenid = document.getElementById('hidenid').innerHTML;
+      const userId = hidenid ;
+      const userLinkhistory = document.getElementById('history');
+      userLinkhistory.href = `/history?userId=${encodeURIComponent(userId)}`;
+      const userLinkaccueil = document.getElementById('accueil');
+      userLinkaccueil.href = `/indextest?userId=${encodeURIComponent(userId)}`;
+    });
+        </script>
     <script src="./script.js"></script>
     <script src="./main.js"></script>
 </body>
