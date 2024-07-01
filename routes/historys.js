@@ -19,15 +19,16 @@ router.use(express.json());
 router.get('/history', async (req, res) => {
 
   const userId = req.query.userId;
+  const id = Number(userId);
   let { data: users, error } = await supabase
   .from('users')
   .select('*')
-  .eq('id', userId)
+  .eq('id', id)
   
 if (error) {
         return res.status(500).json({ error: error.message });
     }
-    const user = users[0];
+    
     //const match = await bcrypt.compare(password, user.password);
     //if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
      
