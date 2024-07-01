@@ -3,7 +3,6 @@ const router = express.Router();
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 const { Pool } = require('pg');
-const session = require('express-session');
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
