@@ -28,7 +28,8 @@ router.get('/history', async (req, res) => {
 if (error) {
         return res.status(500).json({ error: error.message });
     }
-    
+    console.log(users)
+    console.log(data)
     //const match = await bcrypt.compare(password, user.password);
     //if (password !== user.password) return res.status(400).send('Mot de passe incorrect'); 
      
