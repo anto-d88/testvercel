@@ -38,8 +38,8 @@ if (error1) {
       .from('products')
       .select('*');
     if (error2) throw error2;
-    console.log(users[0].username)
-    res.render('produis', { user: users[0].username, products: products });
+    console.log(users[0])
+    res.render('produis', { user: users[0], products: products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
