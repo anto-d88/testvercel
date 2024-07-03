@@ -12,7 +12,7 @@ router.get('/accueil', async (req, res) => {
 
  
   
-    res.render('&ccueil'); 
+    res.render('accueil'); 
       });
   //});
 
