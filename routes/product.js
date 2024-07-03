@@ -45,8 +45,9 @@ if (error1) {
   }
 });
 
-router.get('/product/:id',async (req, res) => {
-  const productId = req.params.id;
+router.get('/product',async (req, res) => {
+  //const productId = req.params.id;
+  const productId = req.query.id;
 
   try {
     const { data: products, error } = await supabase
