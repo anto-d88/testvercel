@@ -23,6 +23,7 @@ const authenticate = (req, res, next) => {
 router.get('/produis', async (req, res) => {
  
   const userId = req.query.userId;
+  if (!userId)return res.redirect('/login');
   const iduser = Number(userId);
  try { 
   let { data: users, error1 } = await supabase
@@ -37,8 +38,6 @@ if (error1) {
       .from('products')
       .select('*');
     if (error2) throw error2;
-    console.log(users[0])
-    console.log(products[0])
     res.render('produis', { user: users[0], products: products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
@@ -49,16 +48,16 @@ router.get('/product/:id',async (req, res) => {
   const productId = req.params.id;
   const productIdt = Number(productId)
   console.log(typeof productIdt)
-  console.log(productIdt)
+
   if(productId){
   try { 
     const { data: products, error } = await supabase
       .from('products')
       .select('*')
       .eq('id', productIdt)
-      //.single();
+
     if (error) throw error;
-    console.log(products[0])
+
    res.json(products[0]);
   } catch (err) {
     res.status(500).send('Erreur de base de données');
