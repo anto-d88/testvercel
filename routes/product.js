@@ -56,7 +56,7 @@ router.get('/product/:id',async (req, res) => {
       .from('products')
       .select('*')
       .eq('id', productIdt)
-      .single();
+      //.single();
     if (error) throw error;
     console.log(products[0])
    res.json(products[0]);
