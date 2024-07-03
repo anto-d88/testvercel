@@ -47,12 +47,14 @@ if (error1) {
 
 router.get('/product/:id',async (req, res) => {
   const productId = req.params.id;
-  console.log(typeof productId)
+  const productIdt = Number(productId)
+  console.log(typeof productIdt)
+  console.log(productIdt)
   try {
     const { data: products, error } = await supabase
       .from('products')
       .select('*')
-      .eq('id', productId)
+      .eq('id', productIdt)
       .single();
     if (error) throw error;
     console.log(products[0])
