@@ -46,11 +46,12 @@ if (error1) {
 });
 
 router.get('/product/:id',async (req, res) => {
+ try { 
   const productId = req.params.id;
   const productIdt = Number(productId)
   console.log(typeof productIdt)
   console.log(productIdt)
-  try {
+  
     const { data: products, error } = await supabase
       .from('products')
       .select('*')
