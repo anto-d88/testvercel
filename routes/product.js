@@ -46,12 +46,12 @@ if (error1) {
 });
 
 router.get('/product/:id',async (req, res) => {
- try { 
   const productId = req.params.id;
   const productIdt = Number(productId)
   console.log(typeof productIdt)
   console.log(productIdt)
-  
+  if(productId){
+  try { 
     const { data: products, error } = await supabase
       .from('products')
       .select('*')
@@ -63,6 +63,7 @@ router.get('/product/:id',async (req, res) => {
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
+}
 });
 
 module.exports = router;
