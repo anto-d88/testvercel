@@ -38,6 +38,7 @@ if (error1) {
       .select('*');
     if (error2) throw error2;
     console.log(users[0])
+    console.log(products[0])
     res.render('produis', { user: users[0], products: products });
   } catch (err) {
     res.status(500).send('Erreur de base de données');
@@ -54,8 +55,8 @@ router.get('/product/:id',async (req, res) => {
       .eq('id', productId)
       .single();
     if (error) throw error;
-    console.log(data[0])
-   res.json(data[0]);
+    console.log(products[0])
+   res.json(products[0]);
   } catch (err) {
     res.status(500).send('Erreur de base de données');
   }
