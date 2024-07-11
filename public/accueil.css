@@ -9,6 +9,9 @@ body{
     padding-right: 10%;
     font-family: Arial, sans-serif;
 }
+#hidenid {
+    display: none;
+  }
 header{
     background-color: #2D3D48;
     color: #fff;

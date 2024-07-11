@@ -3,57 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./accueil.css">
     <title>Bienvenue - Les Bienfaits de la Spiruline</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #0f7766;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #48a9a6;
-        }
-        .content {
-            margin-bottom: 30px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur Notre Site - Découvrez les Bienfaits de la Spiruline</h1>
-    </header>
+        <p id="hidenid"><%= user.id %></p>
+        <section class="header">
+            <section class="logo">
+                <img src="logo.png" alt="logo">
+            </section>
+            <section class="boxtextheader"><% if (user) { %>
+              <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
+          <% } %>
+             </section>
+            <nav>
+       <ul class="nav-buttons">
+        <li><a href="/indextest" id="accueil">Accueil</a></li>
+        <li><a href="/history" id="history" class="btn">L'histoire de la spiruline</a></li>
+        <li><a href="/produis" id="produis" class="btn">Nos produits</a></li>
+        <li><a href="#" class="btn">Témoignages</a></li>
+        <li><a href="#" class="btn">Contact</a></li>
+       <% if (!user) { %>
+        <li><a href="/register" class="btn">Nous rejoindre</a></li>
+        <li><a href="/login" class="btn">Connection</a> </li>
+    <% } else { %>
+        <li><a href="/logout" class="btn">Déconnexion</a></li>
+                <% } %>
+            </ul>
+        </nav>
+             </section>
+      </header>
+      <section class="boximgheader">
+        <img src="./img/img10.jpeg" alt="image maquette ! ">
+      </section>
+      <section class="imgtext">
+    <section class="textepagedaccueil">
+    
+        <h2 class="titre">Qu'est-ce que la Spiruline?</h2>
 
-    <div class="container">
-        <div class="content">
-            <h2>Qu'est-ce que la Spiruline?</h2>
+    <section class="text-block">
             <p>
                 La spiruline est une micro-algue bleu-vert qui existe depuis des milliards d'années. Utilisée depuis des siècles pour ses vertus nutritionnelles exceptionnelles, elle est aujourd'hui reconnue comme un superaliment grâce à sa richesse en protéines, vitamines, minéraux et antioxydants.
             </p>
-        </div>
-
-        <div class="content">
+        </section> 
+        <section class="text-block">
             <h2>Les Bienfaits de la Spiruline pour la Santé</h2>
             <p>
                 Consommer de la spiruline peut avoir de nombreux effets positifs sur votre santé globale :
@@ -63,10 +58,9 @@
                     <li><strong>Soutien à la Santé Cardiovasculaire :</strong> Elle aide à réduire le taux de mauvais cholestérol et à améliorer la circulation sanguine, ce qui est bénéfique pour la santé du cœur.</li>
                 </ul>
             </p>
-        </div>
-
-        <div class="content">
-            <h2>Les Bienfaits pour le Corps</h2>
+        </section> 
+        <h2 class="titre">Les Bienfaits pour le Corps</h2>
+        <section class="text-block">
             <p>
                 En intégrant la spiruline dans votre alimentation, vous pouvez constater des améliorations notables au niveau physique :
                 <ul>
@@ -75,10 +69,9 @@
                     <li><strong>Santé Musculaire :</strong> En tant que source complète de protéines, la spiruline est idéale pour les athlètes et ceux qui cherchent à construire ou maintenir leur masse musculaire.</li>
                 </ul>
             </p>
-        </div>
-
-        <div class="content">
-            <h2>Les Bienfaits pour l'Esprit</h2>
+        </section> 
+        <h2 class="titre">Les Bienfaits pour l'Esprit</h2>
+        <section class="text-block">
             <p>
                 La spiruline ne bénéficie pas seulement à votre corps, mais aussi à votre esprit :
                 <ul>
@@ -87,11 +80,21 @@
                     <li><strong>Soutien à la Santé Mentale :</strong> La spiruline peut contribuer à réduire les symptômes de dépression et d'anxiété grâce à ses propriétés anti-inflammatoires et antioxydantes.</li>
                 </ul>
             </p>
-        </div>
-    </div>
-
+        </section>
+    </section>
+</section>
     <footer>
-        <p>&copy; 2024 Les Bienfaits de la Spiruline. Tous droits réservés.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+      const hidenid = document.getElementById('hidenid').innerHTML;
+      const userId = hidenid ;
+      const userLinkaccueil = document.getElementById('accueil');
+      userLinkaccueil.href = `/indextest?userId=${encodeURIComponent(userId)}`;
+      const userLinkproduis = document.getElementById('produis');
+      userLinkproduis.href = `/produis?userId=${encodeURIComponent(userId)}`;
+    });
+        </script>
+        </script>
 </body>
 </html>
