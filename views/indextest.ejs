@@ -14,10 +14,11 @@
         <section class="header">
             <section class="logo">
                 <img src="logo.png" alt="logo">
-                <% if (user) { %>
-                  <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
-              <% } %>
             </section>
+            <section class="boxtextheader"><% if (user) { %>
+              <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
+          <% } %>
+             </section>
             <nav>
        <ul class="nav-buttons">
         <li><a href="/accueil">A propos</a></li>
