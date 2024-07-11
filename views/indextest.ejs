@@ -3,65 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./accueil.css">
     <title>My E-Commerce</title>
 
 
 </head>
 <body>
-    <header>
+      <header>
         <p id="hidenid"><%= user.id %></p>
-        <div id="mySidenav" class="sidenav">
-          <a id="closeBtn" href="#" class="close">×</a>
-          <ul>
-            <li><a href="/accueil">A propos</a></li>
-            <li><a href="/history" id="history">L'histoire de la spiruline</a></li>
-            <li><a href="/produis" id="produis">Nos produits</a></li>
-            <li><a href="#">Témoignages</a></li>
-            <li><a href="#">Contact</a></li>
-            <% if (!user) { %>
-              <li><a href="/register">Nous rejoindre</a></li>
-              <li><a href="/login">Connection</a> </li>
-          <% } else { %>
-              <li></li><a href="/logout">Déconnexion</a></li>
-                      <% } %> 
-                
-        
-          </ul>
-        </div>
-        
-    <section class="boxburgericon">  
-        <a href="#" id="openBtn">
-          <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </a>
-      </section>  
-       <section class="boxtextheader"><% if (user) { %>
-        <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
-    <% } %>  </section>
+        <section class="header">
+            <section class="logo">
+                <img src="logo.png" alt="logo">
+                <% if (user) { %>
+                  <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
+              <% } %>
+            </section>
+            <nav>
+       <ul class="nav-buttons">
+        <li><a href="/accueil">A propos</a></li>
+        <li><a href="/history" id="history" class="btn">L'histoire de la spiruline</a></li>
+        <li><a href="/produis" id="produis" class="btn">Nos produits</a></li>
+        <li><a href="#" class="btn">Témoignages</a></li>
+        <li><a href="#" class="btn">Contact</a></li>
+       <% if (!user) { %>
+        <li><a href="/register" class="btn">Nous rejoindre</a></li>
+        <li><a href="/login" class="btn">Connection</a> </li>
+    <% } else { %>
+        <li><a href="/logout" class="btn">Déconnexion</a></li>
+                <% } %>
+            </ul>
+        </nav>
+             </section>
       </header>
       <main>
         <section class="boximgheader">
-          <img src="./img/imgmaquette01.jpg" alt="image maquette ! ">
+          <img src="./img/img10.jpeg" alt="image maquette ! ">
         </section>
-        <article class="article01">
-          <h1>TITRE</h1>
-          <p>Sed a ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-        </article>
-        <section class="boximgbody">
-          <img src="./img/imgbody01.jpg" alt="image maquette ! ">
-          <img src="./img/imgbody01.jpg" alt="image maquette ! ">
-          <img src="./img/imgbody01.jpg" alt="image maquette ! ">
-        </section>
-        <article class="article01">
-          <h1>TITRE</h1>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-        </article>
-    
-      <section id="donnéesmysql"></section>
+        <section class="imgtext">
+        <section class="textepagedaccueil">
+        <h3 class="titre">Bienvenue sur Spiruline Vitalité</h3>
+    <section class="text-block">
+        <p>
+      Révélez la puissance de la nature pour votre bien-être
+      Nous vous souhaitons la bienvenue sur Spiruline Vitalité, votre destination privilégiée pour découvrir et profiter des bienfaits incomparables de la spiruline, ce super-aliment naturel aux propriétés extraordinaires. Notre mission est de vous offrir des produits de spiruline de la plus haute qualité pour vous aider à atteindre une santé optimale et un bien-être total.
+  </p>
+</section>
+<section class="text-block">
+  <p>
+      Pourquoi choisir la spiruline ?
+      La spiruline, une algue microscopique bleu-vert, est reconnue comme l'un des compléments alimentaires les plus riches et les plus complets que la nature puisse offrir. Riche en protéines, en vitamines, en minéraux et en antioxydants, elle est un allié précieux pour renforcer votre système immunitaire, augmenter votre énergie, améliorer votre digestion et détoxifier votre corps.
+  </p>
+</section>   
+<section class="text-block">
+  <p>   
+      Nos engagements
+      Chez Spiruline Vitalité, nous nous engageons à vous fournir une spiruline pure et naturelle, cultivée dans des conditions optimales et respectueuses de l'environnement. Nous sélectionnons rigoureusement nos partenaires producteurs pour vous garantir des produits sans additifs, sans OGM et sans pesticides, afin de préserver toutes les vertus de la spiruline.
+  </p>
+</section>   
+<section class="text-block">
+  <p>  
+      Découvrez notre gamme de produits
+      Spiruline en comprimés : Pratique et facile à consommer, nos comprimés de spiruline vous permettent de bénéficier de tous les avantages de cette algue merveilleuse en un clin d'œil.
+      Spiruline en poudre : Parfaite pour intégrer dans vos smoothies, jus de fruits, soupes et autres recettes, notre spiruline en poudre s'adapte à toutes vos envies culinaires.
+      Spiruline en paillettes : Pour une utilisation variée et créative, les paillettes de spiruline apportent une touche nutritive à vos salades, yaourts, et plats préférés.
+  </p>
+</section>   
+<section class="text-block">
+  <p>    
+      Nos garanties
+      Qualité supérieure : Tous nos produits sont soumis à des contrôles qualité stricts pour vous assurer une pureté et une efficacité maximales.
+      Traçabilité et transparence : Nous vous informons avec transparence sur l'origine de notre spiruline et les méthodes de production utilisées.
+      Satisfaction client : Nous mettons un point d'honneur à vous offrir un service client réactif et à l'écoute, avec une garantie satisfait ou remboursé.
+  </p>
+</section>
+<section class="text-block">
+  <p>  
+      Rejoignez la communauté Spiruline Vitalité
+      Adopter la spiruline, c'est faire le choix d'un mode de vie sain et équilibré. Rejoignez notre communauté de passionnés de bien-être et partagez vos expériences, recettes et conseils sur notre blog et nos réseaux sociaux. Ensemble, cultivons la santé et la vitalité au quotidien.
+  </p>
+</section> 
+<section class="text-block">
+  <p>    
+      Contactez-nous
+      Vous avez des questions ou besoin de conseils personnalisés ? Notre équipe se tient à votre disposition pour vous accompagner dans votre démarche de bien-être. N'hésitez pas à nous contacter via notre formulaire en ligne ou par téléphone.
+  </p>
+</section> 
+<section class="text-block">
+  <p>    
+      Spiruline Vitalité - La nature au service de votre santé.
+</p>
+</section>
+</section>
+</section>
       </main>
       <footer>
       </footer>
@@ -76,6 +109,5 @@
   });
       </script>
    
-    <script src="./main.js"></script>
 </body>
 </html>
