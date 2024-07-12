@@ -78,6 +78,9 @@ main{
 .titre{
     margin-bottom: 10px;
 }
+main .text-block ul{
+    list-style: none;
+}
 .text-block{
     background-color: rgba(100, 115, 117, 0.37);
     margin-left: 25%;
@@ -88,7 +91,7 @@ main{
     margin-bottom: 10px;
     border-radius: 5px;
     font-size: 80%;
-    list-style: none;
+    
 }
 
 footer{
