@@ -18,7 +18,7 @@ const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
 
 router.get('/accueil', async (req, res) => {
-
+if(!req.query.userId)res.redirect('/login');
   const userId = req.query.userId;
   const id = Number(userId);
   let { data: users, error } = await supabase
