@@ -90,6 +90,9 @@ main{
     font-size: 80%;
 
 }
+.text-block ul{
+    list-style: none;
+}
 footer{
     width: 100%;
     background-color: white;
