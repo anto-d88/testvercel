@@ -78,7 +78,7 @@ main{
 .titre{
     margin-bottom: 10px;
 }
-main .text-block ul{
+.text-block .list{
     list-style: none;
 }
 .text-block{
