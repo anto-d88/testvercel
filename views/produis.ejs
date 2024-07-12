@@ -105,6 +105,7 @@
         document.addEventListener('DOMContentLoaded', () => {
       const hidenid = document.getElementById('hidenid').innerHTML;
       const userId = hidenid ;
+       document.getElementById("hidenid").style.display = "none"
       const userLinkhistory = document.getElementById('history');
       userLinkhistory.href = `/history?userId=${encodeURIComponent(userId)}`;
       const userLinkaccueil = document.getElementById('accueil');
