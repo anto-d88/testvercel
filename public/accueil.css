@@ -80,6 +80,7 @@ main{
 }
 .list{
     list-style-type: none;
+    padding-left: 0;
 }
 .text-block{
     background-color: rgba(100, 115, 117, 0.37);
