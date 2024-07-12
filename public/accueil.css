@@ -10,7 +10,7 @@ body{
     font-family: Arial, sans-serif;
 }
 
- .header #hidenid{
+ #hidenid{
     display: none;
   }
 header{
