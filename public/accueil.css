@@ -79,7 +79,7 @@ main{
     margin-bottom: 10px;
 }
 .list{
-    list-style: none;
+    list-style-type: none;
 }
 .text-block{
     background-color: rgba(100, 115, 117, 0.37);
