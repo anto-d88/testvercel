@@ -14,11 +14,15 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 const pool = new Pool({ connectionString: process.env.SUPABASE_BD_URL});
 
+const authenticate = (req, res, next) => {
+  if (!req.query.userId) {
+    return res.redirect('/login');
+  }
+  next();
+};
 
 
-
-router.get('/accueil', async (req, res) => {
-if(!req.query.userId)res.redirect('/login');
+router.get('/accueil', authenticate, async (req, res) => {
   const userId = req.query.userId;
   const id = Number(userId);
   let { data: users, error } = await supabase
