@@ -90,6 +90,9 @@ main{
     font-size: 80%;
     
 }
+.contenaire{
+    display: flex;
+}
 
 footer{
     width: 100%;

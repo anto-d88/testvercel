@@ -5,46 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My-Ecommerce</title>
 
-    <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./accueil.css">
 </head>
 <body>
-    <header>
-      <p id="hidenid"><%= user.id %></p>
-        <div id="mySidenav" class="sidenav">
-          <a id="closeBtn" href="#" class="close">×</a>
-          <ul>
-            <li><a href="/indextest" id="accueil">Accueil</a></li>
-            <li><a href="#">A propos</a></li>
-            <li><a href="/history" id="history">L'histoire de la spiruline</a></li>
-            <li><a href="/produis">Nos produits</a></li>
-            <li><a href="#">Témoignages</a></li>
-            <li><a href="#">Contact</a></li>
-        <% if (!user) { %>
-            <li><a href="/register">Nous rejoindre</a></li>
-            <li><a href="/login">Connection</a> </li>
-        <% } else { %>
-            <li></li><a href="/logout">Déconnexion</a></li>
-                    <% } %> 
-                
+  <header>
+    <% if (user) { %> 
+            <p id="hidenid"><%= user.id %></p>
+            <% } %>
+    <section class="header">
         
-          </ul>
-        </div>
-        
-    <section class="boxburgericon">  
-        <a href="#" id="openBtn">
-          <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </a>
-      </section>  
-       <section class="boxtextheader"> <% if (user) { %>
-            <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
-        <% } %> </section>
-      </header>
-      <main>
+        <section class="logo">
+            <img src="logo.png" alt="logo">
+        </section>
+        <section class="boxtextheader"><% if (user) { %>
+          <h3 class="nomutilisateur">Bienvenue, <%= user.username %>! </h3>
+      <% } %>
+         </section>
+        <nav>
+   <ul class="nav-buttons">
+    <li><a href="/indextest" id="indextest" class="btn">Accueil</a></li>
+    <li><a href="/accueil" id="accueil" class="btn">A propos</a></li>
+    <li><a href="/history" id="history" class="btn">L'histoire de la spiruline</a></li>
+    <li><a href="#" class="btn">Témoignages</a></li>
+    <li><a href="#" class="btn">Contact</a></li>
+   <% if (!user) { %>
+    <li><a href="/register" class="btn">Nous rejoindre</a></li>
+    <li><a href="/login" class="btn">Connection</a> </li>
+<% } else { %>
+    <li><a href="/logout" class="btn">Déconnexion</a></li>
+            <% } %>
+        </ul>
+    </nav>
+         </section>
+  </header>
+  <main>
+    <section class="contenaire">
+      <section class="description">
+        <h2>Description du produit</h2>
+        <p>Découvrez notre paquet de 200 comprimés de spiruline, un super-aliment riche en nutriments essentiels pour votre santé quotidienne. La spiruline est une algue bleue-verte reconnue pour ses nombreux bienfaits, notamment sa capacité à renforcer le système immunitaire, améliorer l'énergie et soutenir la santé générale.</p>
+        <h2>Bienfaits de la Spiruline</h2>
+        <ul class="benefits-list">
+            <li>Riche en protéines et en acides aminés essentiels</li>
+            <li>Renforce le système immunitaire</li>
+            <li>Améliore l'énergie et la vitalité</li>
+            <li>Soutient la santé cardiovasculaire</li>
+            <li>Détoxifie le corps des métaux lourds et des toxines</li>
+            <li>Aide à la gestion du poids</li>
+            <li>Riche en antioxydants pour combattre le stress oxydatif</li>
+        </ul>
+        <h2>Mode d'emploi</h2>
+        <p>Prendre 4 à 6 comprimés par jour avec un grand verre d'eau, de préférence pendant les repas.</p>
+        <h2>Ingrédients</h2>
+        <p>100% Spiruline biologique pure, sans additifs ni conservateurs.</p>
+        <h2>Avis des clients</h2>
+        <p>"Depuis que je prends de la spiruline, je me sens beaucoup plus énergique et ma digestion s'est améliorée." - Marie</p>
+        <p>"Un complément indispensable pour une alimentation équilibrée. Je recommande vivement!" - Pierre</p>
+        <h2>Prix</h2>
+        <p><strong>19,99 €</strong></p>
+        <button style="padding: 10px 20px; background: #e8491d; color: #ffffff; border: none; cursor: pointer;">Ajouter au Panier</button>
+      </section>
+      <section class="imgproduis">
+        <img src="./img/img19.jpeg" alt="image maquette ! ">
+      </section>
+    </section>
+  </main>
+   <!--  <main>
         <section class="boximgheader">
           <img src="./img/imgmaquette01.jpg" alt="image maquette ! ">
         </section>
@@ -73,7 +98,7 @@
         </article>
     
       <section id="donnéesmysql"></section>
-      </main>
+      </main>-->
       <footer>
       </footer>
       <script>

@@ -23,7 +23,7 @@
              </section>
             <nav>
        <ul class="nav-buttons">
-        <li><a href="/indextest" id="accueil" class="btn">Accueil</a></li>
+        <li><a href="/indextest" id="indextest" class="btn">Accueil</a></li>
         <li><a href="/history" id="history" class="btn">L'histoire de la spiruline</a></li>
         <li><a href="/produis" id="produis" class="btn">Nos produits</a></li>
         <li><a href="#" class="btn">Témoignages</a></li>
@@ -92,7 +92,7 @@
       const hidenid = document.getElementById('hidenid').innerHTML;
       const userId = hidenid ;
       document.getElementById("hidenid").style.display = "none"
-      const userLinkaccueil = document.getElementById('accueil');
+      const userLinkaccueil = document.getElementById('indextest');
       userLinkaccueil.href = `/indextest?userId=${encodeURIComponent(userId)}`;
       const userLinkproduis = document.getElementById('produis');
       userLinkproduis.href = `/produis?userId=${encodeURIComponent(userId)}`;
