@@ -13,10 +13,15 @@ router.use(express.json());
 
 
 
+const authenticate = (req, res, next) => {
+  if (!req.query.userId) {
+    return res.redirect('/login');
+  }
+  next();
+};
 
 
-
-router.get('/history', async (req, res) => {
+router.get('/history', authenticate, async (req, res) => {
 
   const userId = req.query.userId;
   const id = Number(userId);
