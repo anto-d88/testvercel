@@ -10,7 +10,9 @@
 <body>
     <header>
         <section class="header">
-            <p id="hidenid"><%= user.id %></p>
+            <% if (user) { %> 
+                <p id="hidenid"><%= user.id %></p>
+                <% } %>
             <section class="logo">
                 <img src="logo.png" alt="logo">
             </section>
