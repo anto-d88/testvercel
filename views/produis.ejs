@@ -108,8 +108,10 @@
        document.getElementById("hidenid").style.display = "none"
       const userLinkhistory = document.getElementById('history');
       userLinkhistory.href = `/history?userId=${encodeURIComponent(userId)}`;
-      const userLinkaccueil = document.getElementById('accueil');
+      const userLinkaccueil = document.getElementById('indextest');
       userLinkaccueil.href = `/indextest?userId=${encodeURIComponent(userId)}`;
+      const userLinkapropos = document.getElementById('accueil');
+      userLinkapropos.href = `/accueil?userId=${encodeURIComponent(userId)}`;
     });
         </script>
     <script src="./script.js"></script>
