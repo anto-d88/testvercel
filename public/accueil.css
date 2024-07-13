@@ -92,22 +92,21 @@ main{
 }
 .contenaire{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+ 
     width: 100%;
 }
 .description{
     background-color: rgba(100, 115, 117, 0.37);
-    margin-left: 25%;
-    width: 100%;
+    width: 50%;
     color: #f39c12;
     border: 1px solid #f39c12;
     padding: 5px 10px;
     font-size: 80%;
 }
 .imgproduis{
+    background-image: url("../img/img18.jpeg");
     border: 1px solid #f39c12;
-    width: 100%;
+    
 
 }
 
