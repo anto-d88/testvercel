@@ -69,11 +69,7 @@ main{
     padding: 50px 0;
 }
 .textepagedaccueil{
-    
-    
     text-align: center;
-    
-
 }
 .titre{
     margin-bottom: 10px;
@@ -102,11 +98,15 @@ main{
     padding: 5px 10px;
     font-size: 75%;
 }
+.description ul{
+    list-style: none;
+}
 .imgproduis{
+    background-position: center;
+    background-size: contain;
+    width: 50%;
     background-image: url("../img/img18.jpeg");
-    border: 1px solid #f39c12;
-    
-
+    border: 1px solid #f39c12;  
 }
 
 footer{
