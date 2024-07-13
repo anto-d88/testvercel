@@ -106,7 +106,9 @@ main{
     font-size: 80%;
 }
 .imgproduis{
+    border: 1px solid #f39c12;
     width: 100%;
+
 }
 
 footer{
