@@ -33,7 +33,6 @@ function addToCart(productId) {
         const cartDiv = document.getElementById('cart');
         cartDiv.innerHTML = ''; 
         cart.forEach(product => {
-            console.log(product.quantity)
         const div = document.createElement('div');
         div.setAttribute("id","articlajouter");
         const prix =  `${product.price}`;
@@ -98,13 +97,9 @@ function deletarticl(productId) {
 
 
 
-/*function deletarticl(){
-    alert("hello");
 
-}*/
 
 function placeOrder() {
-    alert("hello")
     fetch('/success', {
         method: 'POST',
         headers: {
