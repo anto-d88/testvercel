@@ -11,6 +11,7 @@ const historyRoutes = require('./routes/historys');
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/product');
 const testRoutes = require('./routes/accuei');
+const commandeRoutes = require('./routes/commande');
 // Route de base
 // Middleware pour parser les requêtes POST
 app.use(express.urlencoded({ extended: true }));
@@ -38,6 +39,7 @@ app.use(historyRoutes);
 app.use(authRoutes);
 app.use(productRoutes);
 app.use(testRoutes);
+app.use(commandeRoutes);
 /*app.get('/about', (req, res) => {
     res.send('About Page');
  /////});
